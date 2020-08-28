@@ -1,0 +1,24 @@
+settings:
+  legacy:
+    force: false
+    interval: 0s
+schema:
+- name: echo-practice
+  path: .
+  commands:
+    install:
+      status: true
+      method: go build -o ./server ./server.go
+    run:
+      status: true
+      method: ./server
+  watcher:
+    extensions:
+    - go
+    paths:
+    - /
+    ignore:
+      paths:
+      - .git
+      - .realize
+      - vendor
